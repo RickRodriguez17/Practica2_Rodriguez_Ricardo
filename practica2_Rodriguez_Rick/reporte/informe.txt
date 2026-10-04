@@ -1,0 +1,101 @@
+PRÁCTICA INDIVIDUAL N° 2
+Formulación y análisis preliminar de un sistema real o simulado
+
+1. NOMBRE DEL ESTUDIANTE
+Elmer Ricardo Rodriguez Aguirre
+
+2. TÍTULO DEL CASO
+Análisis preliminar del tiempo de atención de clientes en la ferretería
+Construir a tu Alcance, mediante datos simulados.
+
+3. FORMULACIÓN DEL PROBLEMA
+La ferretería atiende pedidos de distinta complejidad. Conocer cuánto dura
+la atención permite describir el servicio e identificar operaciones que
+merecen revisión por su duración inusual.
+Pregunta de estudio: ¿cuál es el comportamiento del tiempo de atención y
+qué observaciones presentan una duración atípica según el Z-Score?
+Objetivo: analizar 30 tiempos propuestos, calcular estadísticos descriptivos
+y detectar observaciones atípicas. No se evalúa todo el sistema de gestión.
+Alcance: atención en mostrador, desde que el vendedor inicia la atención
+hasta que termina de registrar la venta o cotización. Se excluyen espera
+en fila, preparación en almacén y entrega de mercadería.
+
+4. VARIABLE PRINCIPAL
+Nombre: tiempo_atencion_min.
+Definición: duración de la atención de un cliente.
+Tipo: cuantitativa continua, registrada con una cifra decimal.
+Unidad: minutos. Unidad de observación: una atención a un cliente.
+id_cliente solo identifica la observación; no es la variable de estudio.
+
+5. SUPUESTOS
+- Los 30 datos son SIMULADOS y propuestos para fines académicos. No provienen
+  de mediciones reales ni de registros del sistema de la ferretería.
+- Los valores se diseñaron manualmente: atenciones habituales de pocos
+  minutos y una atención más larga para ilustrar el método.
+- Se supone una misma definición de inicio y fin para todos los clientes.
+- Se supone que las observaciones son independientes y las condiciones
+  generales comparables; estos supuestos no se verificaron en campo.
+- Se usa desviación estándar muestral (divisor n - 1).
+- El criterio es |Z| > 3. Es una regla exploratoria: no demuestra
+  que el dato sea erróneo ni establece por sí sola una causa.
+- No se ha demostrado normalidad; la regla Z debe interpretarse con cautela,
+  especialmente porque los tiempos de servicio pueden ser asimétricos.
+
+6. ESTADÍSTICOS DESCRIPTIVOS
+Cantidad de observaciones: 30.
+Media: 5.7833 min.
+Mediana: 5.3500 min.
+Moda: No hay moda: todos los valores aparecen una sola vez.
+Mínimo: 3.8000 min.
+Máximo: 18.5000 min.
+Rango (máximo - mínimo): 14.7000 min.
+Varianza muestral: 6.6456 min².
+Desviación estándar muestral: 2.5779 min.
+Coeficiente de variación: 44.57 %.
+Los cálculos usan todos los datos y se realizan sin redondear previamente.
+
+7. VALORES ATÍPICOS DETECTADOS CON Z-SCORE
+Fórmula: Z_i = (x_i - media) / desviación estándar muestral.
+Criterio aplicado: un dato se señala cuando |Z_i| > 3.
+Cantidad detectada: 1 (3.33 % de las observaciones).
+- Cliente 30: 18.50 min; Z-Score = 4.9330.
+El archivo resultados_zscore.csv contiene el cálculo de cada observación.
+Los datos señalados se conservan en los estadísticos principales.
+
+8. ANÁLISIS DESCRIPTIVO DE LA VARIABLE
+El promedio de atención es 5.78 min y la mediana es 5.35 min.
+La mediana divide los tiempos ordenados en dos mitades y representa una
+referencia del centro menos sensible a duraciones extremas.
+La diferencia entre media y mediana, junto con los tiempos más altos,
+sugiere asimetría hacia duraciones largas en este conjunto propuesto.
+El rango es 14.70 min y la desviación estándar es 2.58 min.
+Como comparación exploratoria, la media de los 29 tiempos
+no señalados es 5.3448 min y su desviación
+muestral es 0.9530 min. Esta comparación no
+elimina observaciones del análisis principal ni recalcula los atípicos.
+
+9. INTERPRETACIÓN TÉCNICA
+Las observaciones señaladas por Z-Score requieren revisión si aparecieran
+en registros reales. Una atención extensa podría relacionarse con pedidos
+complejos, consultas de precios, descuentos o dificultades de registro;
+son hipótesis y no causas demostradas por estos datos.
+Para investigar, se propone registrar también cantidad de artículos,
+tipo de operación e incidencias, sin cambiar la variable principal.
+El análisis sirve como ejemplo de cómo el sistema de gestión podría
+apoyar el seguimiento del servicio si registrara su inicio y fin.
+No permite determinar tiempos de espera, capacidad de atención ni
+saturación, porque no incluye llegadas de clientes ni número de vendedores.
+Se recomienda recolectar datos reales en distintos días y horarios antes
+de tomar decisiones operativas. Un atípico no debe eliminarse sin revisar
+si representa una atención real o un error de registro.
+
+10. CONCLUSIÓN
+Se formuló el problema y se analizaron 30 tiempos simulados de atención.
+La media fue 5.78 min, la mediana 5.35 min y la desviación
+estándar muestral 2.58 min. Con |Z| > 3, la cantidad de
+observaciones atípicas fue 1; se detallan en el apartado 7.
+El ejercicio muestra cómo describir tiempos e identificar atenciones
+inusuales para su revisión. Al tratarse de datos diseñados con fines
+didácticos, los resultados no describen el desempeño real de la ferretería.
+La siguiente etapa sería medir atenciones reales y comprobar sus causas
+antes de proponer cambios en el proceso.
